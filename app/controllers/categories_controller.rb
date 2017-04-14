@@ -1,7 +1,9 @@
 class CategoriesController < ApplicationController
+  before_action :set_category, only: [:destroy,:show,:top_films]
   def index
     @categories = Category.all
   end
+
   def new
     @category = Category.new
   end
@@ -14,17 +16,27 @@ class CategoriesController < ApplicationController
       render :new
     end
   end
+
   def destroy
-    @category = Category.find(params[:id])
     @category.destroy
     redirect_to categories_path, notice: "Category deleted."
   end
 
-  def show
-   @category = Category.find(params[:id])
+  def top_films
+    @films = @category.top_films
   end
+
+  def show
+
+  end
+  
+  private
 
   def category_params
     params.require(:category).permit(:title, :desc)
+  end
+
+  def set_category
+     @category = Category.find(params[:id])
   end
 end

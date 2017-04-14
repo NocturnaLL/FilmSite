@@ -8,7 +8,6 @@ class CommentsController < ApplicationController
     @comment = @film.comments.new(comment_params)
     @comment.user = current_user
     if @comment.save
-      current_user.score.increment!(:ads_counter)
       redirect_to @film
     else
       redirect_to @film

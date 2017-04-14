@@ -51,6 +51,7 @@
             <li><%= link_to "Films", films_path %></li>
             <li><%= link_to "Categories", categories_path %></li>
             <li><%= link_to "New Film", new_film_path %></a></li>
+            <li><%= link_to "New Category", new_category_path %></a></li>
           </ul>
         </div>
       </div>
@@ -67,13 +68,11 @@
           <div class="well sidebar-nav">
             <% if current_user %>
               <h3><%=current_user.name%></h3>
-                <% if !current_user.score %>
-                <% current_user.score = 0 %>
-                <% end %>
             <% end %>
             <ul class="nav nav-list">
               <% if current_user %>
                 <li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li></br></br>
+                <li><%= link_to "My Films", mine_films_path %></li>
               <% end %>
               <li><%= link_to "Login", new_user_session_path %></li>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>

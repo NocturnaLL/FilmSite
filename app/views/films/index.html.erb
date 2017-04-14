@@ -1,7 +1,39 @@
-<% @films.each do |film| %>
 
+  <%= render 'film_list' %>
 
-
-  <%= link_to image_tag(film.image.url(:medium)), film_path(film) %><br><br>
-
-  <%end %>
+  <div class="row">
+  	<div class="col-md-4">
+  	  <div class="panel panel-default">
+  	    <div class="panel-heading"><i class="fa fa-lightbulb-o"></i> Random Ideas</div>
+  	    <div class="list-group">
+  	    	<% @films.each do |film| %>
+  	    		<%= link_to film.title, film_path(film), class: "list-group-item" %>
+  	    	<% end %>
+  	    </div>
+  	  </div>
+  	</div>
+  	<div class="col-md-4">
+  	  <div class="panel panel-default">
+  	    <div class="panel-heading"><i class="fa fa-comments-o"></i> Son Yorumlar</div>
+  	    <div class="list-group">
+  	      <a href="#" class="list-group-item">Son Yorum #1</a>
+  	      <a href="#" class="list-group-item">Son Yorum #2</a>
+  	      <a href="#" class="list-group-item">Son Yorum #3</a>
+  	      <a href="#" class="list-group-item">Son Yorum #4</a>
+  	      <a href="#" class="list-group-item">Son Yorum #5</a>
+  	    </div>
+  	  </div>
+  	</div>
+  	<div class="col-md-4">
+  	  <div class="panel panel-default">
+  	    <div class="panel-heading"><i class="fa fa-star-o"></i> En İyi Fikirler</div>
+  	    <div class="list-group">
+  	      <a href="#" class="list-group-item">En İyi Fikir #1</a>
+  	      <a href="#" class="list-group-item">En İyi Fikir #2</a>
+  	      <a href="#" class="list-group-item">En İyi Fikir #3</a>
+  	      <a href="#" class="list-group-item">En İyi Fikir #4</a>
+  	      <a href="#" class="list-group-item">En İyi Fikir #5</a>
+  	    </div>
+  	  </div>
+  	</div>
+  </div>

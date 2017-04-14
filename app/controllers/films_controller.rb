@@ -2,6 +2,11 @@ class FilmsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_film, only: [:show, :edit, :update, :destroy]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
+  
+  def mine
+    @films= current_user.films
+  end
+
   def new
     @film = Film.new
     load_categories
