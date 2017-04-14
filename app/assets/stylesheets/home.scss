@@ -1,0 +1,14 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+header{background-image:url('http://eskipaper.com/images/skyrim-logo-5.jpg');background-size:cover;height:1000px;}
+#menu{margin:1px;opacity:0.5;position:fixed;margin:-65px 0px 0px 300px;}
+#menu ul{margin:0;padding:0;list-style:none;background:#252525;text-align:center;position:relative;}
+#menu ul li{display:inline-block;}
+#menu ul li a{display:block;height:45px;width:300px;color:#fff;font-family:helvenica;line-height:43px;
+    text-decoration:none;transition:background 0.5s linear 0s, color 0.5s linear 0s}
+#menu ul li a:hover{background:#f0300b;color:#781705;}
+#menu ul ul{position:absolute;width:150px;display:none;}
+#menu ul ul li{display:block;background:#252525;}

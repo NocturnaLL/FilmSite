@@ -1,0 +1,8 @@
+<h1> Create a new Film</h1>
+<% if @film.errors.any? %>
+  <h3>
+    <%= @film.errors.full_messages.join(", ") %>
+  </h3>
+<% end %>
+<%=render "form"%><br><br>
+<%= link_to "Back to films list", films_path %><br>

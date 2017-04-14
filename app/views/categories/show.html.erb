@@ -1,0 +1,8 @@
+<h1><%= @category.title %></h1>
+
+<% @category.films.each do |film| %>
+  <b>ID </b><%= film.id %>
+  <b>Title </b>
+  <%= link_to film.title, film_path(film) %>
+  <b>Description </b><%= film.description %><br>
+<% end %>

@@ -1,0 +1,33 @@
+<%= render "flash" %>
+<li class="round-image-50"><%= image_tag(@film.image.url(:thumb)) %></li><br><br>
+
+
+<b> Title </b><%= @film.title %><br>
+<b> Description </b><%= @film.description %><br>
+<b> Category </b><%=@film.category.title %><br><br>
+<b>Uploaded at: </b><%= @film.created_at %><br />
+<b>User: </b><%= @film.user.name %><br /><br><br>
+
+
+
+<video autobuffer="autobuffer" preload="auto" style="width:100%;height:100%;" controls="controls" width="100%" height="100%" poster="<%= @film.video.url(:preview)%>" >
+      <source  src="<%= @film.video.url%>"  />
+     <%if @film.video.expiring_url(:mp4video).present? %>
+     <source type="video/mp4"  src="<%= @film.video.url(:mp4video)%>" />
+      <%end%>
+     </video>
+
+
+<%= render 'votes/form' %>
+<%= render 'comments/comment_list' %>
+<%= render 'comments/form' %>
+
+
+<br><br>
+<%= link_to "Back to films list", films_path %>
+<% if current_user.present? and current_user.id == @film.user_id %>
+  <br/>
+  <%= link_to "Edit film", edit_film_path(@film) %>
+  <br/>
+  <%= link_to "Sil", film_path(@film), method: :delete %>
+<% end %>

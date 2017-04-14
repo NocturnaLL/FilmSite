@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Comments
+  </div>
+  <div class="panel-body">
+    <% @film.comments.each do |comment| %>
+      <small><%= comment.user.name %> says:</small>
+      <p>
+        <%= comment.body %>
+        <% if current_user.present? && comment.user_id == current_user.id %>
+          <small><%= link_to "Delete", film_comment_path(@film, comment), method: :delete %></small>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<h1>Editing <%= @film.title %></h1>
+
+<% if @film.errors.any? %>
+  <h3>
+    <%= @film.errors.full_messages.join(", ") %>
+  </h3>
+<% end %>
+
+<%= render partial: "form" %>
