@@ -12,7 +12,13 @@ class FilmsController < ApplicationController
   end
 
   def show
-
+    if current_user
+      if @film.votes.where(user_id: current_user.id).any?
+        @vote = @film.votes.where(user_id: current_user.id).first
+      else
+        @vote = @film.votes.build
+      end
+    end
   end
 
   def create
@@ -37,7 +43,7 @@ class FilmsController < ApplicationController
   end
 
   def destroy
-    @film.destroy;
+    @film.destroy
     redirect_to films_path, notice: "Film was deleted"
   end
 

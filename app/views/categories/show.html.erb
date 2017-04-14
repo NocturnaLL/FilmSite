@@ -6,3 +6,6 @@
   <%= link_to film.title, film_path(film) %>
   <b>Description </b><%= film.description %><br>
 <% end %>
+<br><br><br>
+<%= link_to "Back to category list", categories_path %><br>
+<%= link_to "Delete", category_path(@category), method: :delete %><br>

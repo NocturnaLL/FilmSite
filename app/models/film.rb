@@ -3,8 +3,8 @@ class Film < ApplicationRecord
   belongs_to :category
   has_many :comments, dependent: :destroy
   belongs_to :user
-  has_many :votes
-
+  has_many :votes, dependent: :destroy
+  has_many :voters, through: :votes, source: :user
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
@@ -28,6 +28,10 @@ class Film < ApplicationRecord
   has_attached_file :video
 
 
+  def average_rating
+    rating = votes.average(:rating)
+    rating ? rating.to_s : "0.0"
+  end
 
   protected
   def is_type_of_video?

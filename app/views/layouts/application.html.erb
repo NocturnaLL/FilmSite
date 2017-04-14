@@ -73,13 +73,12 @@
             <% end %>
             <ul class="nav nav-list">
               <% if current_user %>
-                <li class="nav-header"><%=current_user.score%></li>
                 <li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li></br></br>
               <% end %>
               <li><%= link_to "Login", new_user_session_path %></li>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
               <li><%= link_to 'Edit Profile',edit_user_registration_path %></li>
-              <li><%= link_to "Register", new_user_registration_path %></li></ul>
+              <li><%= link_to "Register", new_user_registration_path %></li></ul><br>
 
             </ul>
           </div><!--/.well -->
@@ -87,7 +86,7 @@
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2017</p>
+        <p>&copy; Fidofilm</p>
       </footer>
 
     </div> <!-- /container -->

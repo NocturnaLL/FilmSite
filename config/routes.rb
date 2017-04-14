@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :home, only: [:index]
   resources :films do
     resources :comments, only: [:create, :destroy]
-    resources :votes, only:[:create, :destroy]
+    resources :votes, only:[:create, :update]
   end
 
-  resources :categories, only: [:show, :index]
+  resources :categories
 end
