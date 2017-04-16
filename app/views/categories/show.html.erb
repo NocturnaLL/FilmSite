@@ -7,5 +7,6 @@
   <b>Description </b><%= film.description %><br>
 <% end %>
 <br><br><br>
+<%= link_to "Top films", top_films_category_path(@category) %><br>
 <%= link_to "Back to category list", categories_path %><br>
 <%= link_to "Delete", category_path(@category), method: :delete %><br>

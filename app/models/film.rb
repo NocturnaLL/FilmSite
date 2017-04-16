@@ -27,6 +27,9 @@ class Film < ApplicationRecord
      :if => :is_type_of_image?
   has_attached_file :video
 
+  def self.random_films
+    self.order("RANDOM()").all
+  end
 
   def average_rating
     rating = votes.average(:rating)

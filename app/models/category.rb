@@ -3,7 +3,7 @@ class Category < ApplicationRecord
 
   has_many :films
 
-  def top_ideas
+  def top_films
   films
       .joins(:votes)
       .select("films.*, avg(votes.rating) as point")
