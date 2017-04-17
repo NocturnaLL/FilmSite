@@ -15,6 +15,8 @@ class FilmsController < ApplicationController
   def index
     @films = Film.all
     @random_films = Film.random_films
+    @last_comments = Film.last_comments
+    @best_films = Film.best_films
   end
 
   def show
@@ -36,6 +38,7 @@ class FilmsController < ApplicationController
       render :new
     end
   end
+
   def edit
     load_categories
   end

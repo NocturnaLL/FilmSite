@@ -31,6 +31,15 @@ class Film < ApplicationRecord
     self.order("RANDOM()").all
   end
 
+
+  def self.last_comments
+    Comment.all
+  end
+
+  def self.best_films
+    Vote.where("rating>'4'")
+  end
+
   def average_rating
     rating = votes.average(:rating)
     rating ? rating.to_s : "0.0"

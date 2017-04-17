@@ -1,6 +1,5 @@
 
   <%= render 'film_list' %>
-
   <div class="row">
     <div class="col-md-4">
       <div class="panel panel-default">
@@ -16,11 +15,10 @@
       <div class="panel panel-default">
         <div class="panel-heading"><i class="fa fa-comments-o"></i> Last Comments</div>
         <div class="list-group">
-          <a href="#" class="list-group-item">Son Yorum #1</a>
-          <a href="#" class="list-group-item">Son Yorum #2</a>
-          <a href="#" class="list-group-item">Son Yorum #3</a>
-          <a href="#" class="list-group-item">Son Yorum #4</a>
-          <a href="#" class="list-group-item">Son Yorum #5</a>
+          <% @last_comments.each do |comment| %>
+          <small><%= comment.user.name %> says:</small>
+            <%= comment.body %><br>
+          <% end %>
         </div>
       </div>
     </div>
@@ -28,11 +26,9 @@
       <div class="panel panel-default">
         <div class="panel-heading"><i class="fa fa-star-o"></i> Best films</div>
         <div class="list-group">
-          <a href="#" class="list-group-item">En İyi Film #1</a>
-          <a href="#" class="list-group-item">En İyi Film #2</a>
-          <a href="#" class="list-group-item">En İyi Film #3</a>
-          <a href="#" class="list-group-item">En İyi Film #4</a>
-          <a href="#" class="list-group-item">En İyi Film #5</a>
+          <% @best_films.each do |film| %>
+            <%= link_to film.title, film_path(film), class: "list-group-item" %>
+          <% end %>
         </div>
       </div>
     </div>
