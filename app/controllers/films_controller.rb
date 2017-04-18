@@ -4,7 +4,17 @@ class FilmsController < ApplicationController
   before_action :authorize_user!, only: [:edit, :update, :destroy]
 
   def mine
-    @films= current_user.films
+    @films = current_user.films
+    @random_films = @films.random_films
+    @last_comments = Film.last_comments
+    @best_films = Film.best_films
+  end
+
+  def recent
+    @films = Film.all
+    @random_films = Film.random_films
+    @last_comments = Film.last_comments
+    @best_films = Film.best_films
   end
 
   def new

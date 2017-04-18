@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading"><i class="fa fa-lightbulb-o"></i> Random Films</div>
+      <div class="list-group">
+        <% @random_films.each do |film| %>
+
+          <%= link_to film.title, film_path(film), class: "list-group-item" %>
+        
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading"><i class="fa fa-comments-o"></i> Last Comments</div>
+      <div class="list-group">
+        <% @last_comments.each do |comment| %>
+        <small><%= comment.user.name %> says:</small>
+               <%= comment.body %><br>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading"><i class="fa fa-star-o"></i> Best films</div>
+      <div class="list-group">
+        <% @best_films.each do |film| %>
+          <%= film.title %><br>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
