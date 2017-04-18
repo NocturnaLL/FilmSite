@@ -37,7 +37,10 @@ class Film < ApplicationRecord
   end
 
   def self.best_films
-    Vote.where("rating>'4'")
+    Film.find_by_sql("SELECT *
+        FROM films,votes
+        where votes.film_id= films.id and votes.rating >= 4")
+
   end
 
   def average_rating
